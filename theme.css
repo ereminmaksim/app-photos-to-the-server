@@ -1,0 +1,167 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap");
+body {
+  background: url("./img/rock.jpg") no-repeat;
+  background-size: cover;
+  font-family: "Buda", cursive;
+}
+
+.container {
+  padding-top: 5rem;
+  width: 900px;
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.card {
+  border-radius: 5px;
+  background: #fff;
+  padding: 4rem;
+  background: linear-gradient(to right, #FAECD5, #CAE4D8);
+}
+
+/*КНОПКА*/
+.btn_1 {
+  margin-bottom: 21px;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  margin-right: 40px;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #eee;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+button span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-width: 1em;
+  padding: 1em;
+  border-radius: 2em;
+  background-color: #7fdc40;
+  border: 1px solid #71d82a;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s, box-shadow 0.2s, background-color 0.2s;
+}
+button::after {
+  content: "";
+  position: absolute;
+  top: -1em;
+  bottom: -1em;
+  left: -1em;
+  right: -1em;
+  border-radius: 4em;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.1s;
+}
+button:hover span, button:focus span {
+  background-color: #88de4d;
+}
+button:active span {
+  background-color: #7fdc40;
+  transform: scale(0.97);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+button:active::after {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
+}
+
+.wrap {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrap button {
+  margin: 1em;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.preview-image img {
+  width: 320px;
+  height: 200px;
+}
+
+.preview-image {
+  position: relative;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  overflow: hidden;
+}
+.preview-image .preview-remove {
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: bold;
+  background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.22s;
+}
+.preview-image:hover .preview-remove {
+  opacity: 1;
+}
+.preview-image:hover .preview-info {
+  bottom: 2px;
+}
+
+.preview-info {
+  height: 22px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -70px;
+  font-size: 0.8rem;
+  background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  transition: bottom 0.22s;
+}
+
+.preview-image.removing {
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+.preview-info-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #7fdc40;
+  text-align: center;
+  transition: width 0.22s;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=theme.css.map */

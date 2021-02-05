@@ -1,0 +1,205 @@
+//ПЕРЕМЕННЫЕ:
+$green: #7fdc40;
+$primaryColor: #4A90E2;
+//ШРИФТЫ
+@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap');
+
+//СТАНДАРТНЫЕ НАСТРОЙКИ ШАБЛОНА
+body {
+  //background: linear-gradient(to right, #FEFFFF, #A7CECC);
+  background: url("./img/rock.jpg") no-repeat;
+  background-size: cover;
+  font-family: 'Buda', cursive;
+
+}
+
+.container {
+  padding-top: 5rem;
+  width: 900px;
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.card {
+  border-radius: 5px;
+  background: #fff;
+  padding: 4rem;
+  //box-shadow: 2px 3px 10px rgba(0, 0, 0, .2);
+  background: linear-gradient(to right,#FAECD5, #CAE4D8);
+}
+
+/*КНОПКА*/
+
+.btn_1 {
+
+  margin-bottom: 21px;
+
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  margin-right: 40px;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: #eee;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+
+  span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-width: 1em;
+    padding: 1em;
+    border-radius: 2em;
+    background-color: $green;
+    border: 1px solid darken($green, 5%);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform .1s, box-shadow .2s, background-color .2s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1em;
+    bottom: -1em;
+    left: -1em;
+    right: -1em;
+    border-radius: 4em;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
+    transition: box-shadow .1s;
+  }
+
+  &:hover,
+  &:focus {
+    span {
+      background-color: lighten($green, 3%);
+    }
+  }
+
+  &:active {
+    span {
+      background-color: $green;
+      transform: scale(0.97);
+      box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    &::after {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.wrap {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  button {
+    margin: 1em;
+  }
+}
+
+//ПРЯЧЕМ INPUT, ДЕЛАЕМ КРАСИВОЙ КНОПКУ, ДЛЯ ВЫЗОВА ФАЙЛОВ ЛОКАЛЬНО
+
+input[type=file] { //обращаемся к конкретному input(type=file)
+  display: none;
+}
+
+// ДЛАМ PREVIEW БОЛ КРАСИВЫМ И ВПИСЫВАЮИМСЯ В НАШ PROJECT
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5rem;
+}
+
+.preview-image img {
+  width: 320px;
+  height: 200px;
+}
+
+.preview-image {
+  position: relative;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  overflow: hidden;
+
+  //КНОПКА ДЛЯ УДАЛЕНИЯ!!!
+  .preview-remove {
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: bold;
+    background-color: #2f4353;
+    background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity .22s;
+  }
+
+  &:hover .preview-remove {
+    opacity: 1;
+  }
+
+  &:hover .preview-info {
+    bottom: 2px;
+  }
+
+}
+
+
+.preview-info {
+  height: 22px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -70px;
+  font-size: .8rem;
+  background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  transition: bottom .22s;
+}
+
+
+//УДАЛЕНИЕ ТОВАРА!!!
+.preview-image.removing {
+  transform: scale(0);
+  transition: transform .5s;
+}
+
+//Статус бар для поссмотра загрузки картиок на сервер
+
+.preview-info-progress{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: $green;
+  text-align: center;
+  transition: width .22s;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  //width: 30%;
+}
+
+
